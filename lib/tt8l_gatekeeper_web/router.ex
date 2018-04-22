@@ -7,5 +7,7 @@ defmodule Tt8lGatekeeperWeb.Router do
 
   scope "/api", Tt8lGatekeeperWeb do
     pipe_through :api
+
+    resources "/users", UserController, except: [:new, :edit]
   end
 end
