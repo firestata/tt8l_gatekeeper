@@ -6,7 +6,7 @@ defmodule Tt8lGatekeeper.Accounts.User do
 
   @primary_key {:id, :binary_id, autogenerate: true}
 
-  schema "users" do
+  schema "accounts_users" do
     field :email,                 :string
     field :name,                  :string
     field :password,              :string, virtual: true
