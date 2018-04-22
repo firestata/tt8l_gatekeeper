@@ -3,11 +3,18 @@ defmodule Tt8lGatekeeperWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug Guardian.Plug.VerifyHeader
+    plug Guardian.Plug.LoadResource
   end
 
-  scope "/api", Tt8lGatekeeperWeb do
+  pipeline :authenticated do
+    plug Guardian.Plug.EnsureAuthenticated
+  end
+
+  scope "/api/v1", Tt8lGatekeeperWeb do
     pipe_through :api
 
+    pipe_through :authenticated
     resources "/users", UserController, except: [:new, :edit]
   end
 end

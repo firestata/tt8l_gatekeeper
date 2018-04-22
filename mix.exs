@@ -19,8 +19,9 @@ defmodule Tt8lGatekeeper.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Tt8lGatekeeper.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      # mod: {Tt8lGatekeeper.Application, []},
+      # extra_applications: [:logger, :runtime_tools]
+      [applications: [:comeonin]]
     ]
   end
 
@@ -39,6 +40,7 @@ defmodule Tt8lGatekeeper.Mixfile do
       {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
+      {:comeonin, "~> 3.0"},
       {:guardian, "~> 0.14"}
     ]
   end
