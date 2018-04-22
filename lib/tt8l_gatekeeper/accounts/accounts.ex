@@ -5,7 +5,6 @@ defmodule Tt8lGatekeeper.Accounts do
 
   import Ecto.Query, warn: false
   alias Tt8lGatekeeper.Repo
-
   alias Tt8lGatekeeper.Accounts.User
 
   @doc """
@@ -101,4 +100,11 @@ defmodule Tt8lGatekeeper.Accounts do
   def change_user(%User{} = user) do
     User.changeset(user, %{})
   end
+
+  def register_user(attrs \\{}) do
+    %User{}
+    |> User.registration_changeset(attrs)
+    |> Repo.insert()
+  end
+
 end

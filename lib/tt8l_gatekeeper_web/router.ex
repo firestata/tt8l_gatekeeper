@@ -14,6 +14,7 @@ defmodule Tt8lGatekeeperWeb.Router do
   scope "/api/v1", Tt8lGatekeeperWeb do
     pipe_through :api
 
+    post "/sign_up", RegistrationController, :sign_up
     pipe_through :authenticated
     resources "/users", UserController, except: [:new, :edit]
   end
