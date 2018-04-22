@@ -29,7 +29,7 @@ config :guardian, Guardian,
   ttl: {30, :days},
   allowed_drift: 2000,
   verify_issuer: true, # optional
-  secret_key: System.get_env("GUARDIAN_SECRET_KEY"),
+  secret_key: "ICoN3UJlDgCghgOx1vJQEdgRpQEzf4+sK5p2dd/pecViMquh9ZbPIupOWmiq1OLf",
   serializer: Tt8lGatekeeper.GuardianSerializer
 
 # Import environment specific config. This must remain at the bottom

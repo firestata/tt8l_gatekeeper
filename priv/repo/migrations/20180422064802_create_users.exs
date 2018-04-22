@@ -1,4 +1,4 @@
-defmodule Tt8lGatekeeper.Repo.Migrations.CreateUsers do
+defmodule Tt8lGatekeeper.Repo.Migrations.CreateTt8lGatekeeper.Accounts.User do
   use Ecto.Migration
 
   def change do
