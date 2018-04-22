@@ -3,6 +3,7 @@ defmodule Tt8lGatekeeper.Accounts.User do
   import Ecto.Changeset
 
   alias Tt8lGatekeeper.Accounts.User
+  alias Tt8lGatekeeper.Repo
 
   @primary_key {:id, :binary_id, autogenerate: true}
 
@@ -46,7 +47,19 @@ defmodule Tt8lGatekeeper.Accounts.User do
       _ ->
         changeset
     end
+  end
 
+  def find_and_confirm_password(email, password) do
+    case Repo.get_by(User, email: email) do
+      nil ->
+        {:error, :login_not_found}
+      user ->
+        if Comeonin.Bcrypt.checkpw(password, user.password_hash) do
+          {:ok, user}
+        else
+          {:error, :login_failed}
+        end
+    end
   end
 
 end

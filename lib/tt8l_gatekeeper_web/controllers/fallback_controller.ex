@@ -12,9 +12,13 @@ defmodule Tt8lGatekeeperWeb.FallbackController do
     |> render(Tt8lGatekeeperWeb.ChangesetView, "error.json", changeset: changeset)
   end
 
-  def call(conn, {:error, :not_found}) do
+  def call(conn, {:error, :login_failed}), do: login_failed(conn)
+  def call(conn, {:error, :login_not_found}), do: login_failed(conn)
+
+  def login_failed(conn) do
     conn
-    |> put_status(:not_found)
-    |> render(Tt8lGatekeeperWeb.ErrorView, :"404")
+    |> put_status(201)
+    |> render(Tt8lGatekeeperWeb.ErrorView, "error.json", status: :unauthorized, message: "Authentication failed!")
   end
+
 end
