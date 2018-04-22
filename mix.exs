@@ -19,9 +19,8 @@ defmodule Tt8lGatekeeper.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      # mod: {Tt8lGatekeeper.Application, []},
-      # extra_applications: [:logger, :runtime_tools]
-      [applications: [:comeonin]]
+      mod: {Tt8lGatekeeper.Application, []},
+      extra_applications: [:logger, :runtime_tools, :comeonin]
     ]
   end
 
