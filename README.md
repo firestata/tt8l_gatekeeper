@@ -1,5 +1,7 @@
 # THIS PROJECT WAS JUST CREATED FOR EDUATIONAL PURPOSES
-# Elixir Phoenix framework
+# TT8L-Gatekeeper
+
+## Elixir Phoenix framework
 
 To start your Phoenix server:
 
@@ -9,7 +11,7 @@ To start your Phoenix server:
 
 Now you can visit [`localhost:8080`](http://localhost:8080) from your browser.
 
-# TT8L-Gatekeeper
+---
 
 The TT8L-gatekeeper is a simple REST-based authentification service which issues JWTs on successful logins.
 
